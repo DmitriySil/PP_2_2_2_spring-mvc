@@ -22,10 +22,7 @@ public class CarsController {
 
 	@GetMapping(value = "/cars")
 	public String printCars(@RequestParam(value = "count", required = false) String count, ModelMap model) {
-
-		if (count == null){
-			cars = CarService.cars;
-		} else cars = carService.showCars(count);
+		cars = carService.showCars(count);
 		model.addAttribute("cars", cars);
 		return "cars";
 	}

@@ -18,7 +18,9 @@ public class CarService {
         cars.add(new Car("opel", "omega", "red"));
         cars.add(new Car("opel", "kadett", "black"));
     }
-    public List<Car> showCars( String count){
-        return cars.stream().limit(Long.parseLong(count)).collect(Collectors.toList());
+    public List<Car> showCars(String count){
+        if (count == null){
+            return cars;
+        } else return cars.stream().limit(Long.parseLong(count)).collect(Collectors.toList());
     }
 }
